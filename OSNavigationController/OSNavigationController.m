@@ -147,6 +147,7 @@
             controller.view.frame = _contentView.bounds;
             [oldViewController.view removeFromSuperview];
             [_contentView addSubview:controller.view];
+            controller.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         }
         
         [_delegate navigationController:(UINavigationController *)self
@@ -211,7 +212,7 @@
 - (void)viewWillLayoutSubviews
 {
     CGRect frame = _navigationBar.frame;
-    if (self.view.window.rootViewController == self && [[UIDevice currentDevice].systemVersion floatValue] >= 7)
+    if (self.view.window.rootViewController == self || (self.presentingViewController && (self.modalPresentationStyle == UIModalPresentationFullScreen || self.modalPresentationStyle == UIModalPresentationOverFullScreen)))
     {
         CGSize statusFrame = [UIApplication sharedApplication].statusBarFrame.size;
         frame.size.height = _navigationBarHeight + MIN(statusFrame.height, statusFrame.width);
