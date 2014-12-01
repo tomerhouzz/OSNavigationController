@@ -206,6 +206,7 @@
 - (void)setNavigationBarHidden:(BOOL)hidden
 {
     _navigationBarHidden = hidden;
+    [self.view setNeedsLayout];
     [self.view layoutIfNeeded];
 }
 
