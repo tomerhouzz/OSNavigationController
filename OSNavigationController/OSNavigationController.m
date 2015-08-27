@@ -269,7 +269,7 @@
 
 - (void)forwardInvocation:(NSInvocation *)invocation
 {
-    [invocation invokeWithTarget:nil];
+//    [invocation invokeWithTarget:nil];
 }
 
 @end
