@@ -62,7 +62,7 @@
 
 - (instancetype)initWithRootViewController:(UIViewController *)viewController
 {
-    if ((self = [self initWithNibName:nil bundle:nil]))
+    if ((self = [self initWithNibName:NSStringFromClass([OSNavigationController class]) bundle:[NSBundle bundleForClass:[OSNavigationController class]]]))
     {
         self.viewControllers = @[viewController];
     }
